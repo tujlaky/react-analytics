@@ -10,7 +10,6 @@ interface IPreviewProps {
 }
 
 function Preview({className, notification}: IPreviewProps) {
-  console.log(notification);
   return <div className={clsx("flex rounded overflow-hidden border-slate-300/10 border m-4 p-8 justify-center items-center", styles.dotsBg, className)}>
     <div className="rounded w-full bg-white max-w-md drop-shadow-lg flex flex-col justify-center items-start p-4">
       <div className="flex justify-between w-full">
