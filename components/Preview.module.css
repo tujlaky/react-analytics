@@ -1,4 +1,11 @@
 .dotsBg {
-  background-image: radial-gradient(#4a5568 0.5px, #1e293b 0.5px);
+  background-image: radial-gradient(#4a5568 0.5px, #f7fafc 0.5px);
   background-size: 10px 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dotsBg {
+    background-image: radial-gradient(#4a5568 0.5px, #1e293b 0.5px);
+    background-size: 10px 10px;
+  }
 }

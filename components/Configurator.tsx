@@ -1,34 +1,14 @@
 import React, { useEffect } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm, useFormContext } from "react-hook-form";
+import { Notification } from "types/notification";
 import FormControl from "./FormControl";
 import Input from "./Input";
 import Label from "./Label";
 
-type Inputs = {
-  event: string,
-  channel: string,
-  project: string,
-  description: string,
-}
+function Configurator() {
+  const { register } = useFormContext<Notification>();
 
-interface IConfiguratorProps {
-  onChange?: (inputs: Partial<Inputs>) => void,
-  onSubmit?: SubmitHandler<Inputs>
-}
-
-function Configurator({ onChange, onSubmit = () => {} }: IConfiguratorProps) {
-  const { register, handleSubmit, watch } = useForm<Inputs>();
-
-  useEffect(() => {
-    if (!onChange) {
-      return; 
-    }
-
-    const subscription = watch(values => onChange(values));
-    return () => subscription.unsubscribe();
-  }, [watch]);
-
-  return <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+  return <div className="space-y-6">
     <FormControl>
       <Label htmlFor="event">Event</Label>
       <Input id="event" placeholder="User registered" {...register("event", { 
@@ -44,12 +24,12 @@ function Configurator({ onChange, onSubmit = () => {} }: IConfiguratorProps) {
     </FormControl>
 
     <FormControl>
-      <Label htmlFor="project">Project</Label>
-      <Input id="project" placeholder="my-cool-project" {...register("project", { 
+      <Label htmlFor="description">Description</Label>
+      <Input id="description" placeholder="eg: email: john@doe.com" {...register("description", { 
         required: true
       })} />
     </FormControl>
-  </form>
+  </div>
 }
 
 export default Configurator;
