@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
+import Header from "../Header";
+import Sidebar from "../Sidebar";
 
 function DefaultLayout({ children }: React.PropsWithChildren) {
   return (

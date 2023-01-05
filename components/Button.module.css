@@ -1,0 +1,11 @@
+.btn {
+  @apply rounded px-4 py-2;
+}
+
+.default {
+  @apply bg-gray-500 text-white;
+}
+
+.primary {
+  @apply bg-indigo-500 dark:bg-indigo-200 text-white dark:text-slate-800;
+}

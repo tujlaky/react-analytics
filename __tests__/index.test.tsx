@@ -1,9 +1,9 @@
-import Home from '@/pages/index';
+import Sandbox from '@/pages/sandbox';
 import { render, screen } from '@testing-library/react';
 
 describe('Home', () => {
   beforeEach(() => {
-    render(<Home />);
+    render(<Sandbox />);
   });
 
   it('should render the title', () => {
