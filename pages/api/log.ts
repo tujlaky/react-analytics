@@ -7,8 +7,6 @@ export default function handler(
     id: number;
   }>
 ) {
-  console.log("body: ", body);
-
   res.status(201).json({
     id: 1,
   });

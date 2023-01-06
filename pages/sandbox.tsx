@@ -3,32 +3,28 @@ import Preview from '@/components/Preview'
 import Sidebar from '@/components/Sidebar'
 import Configurator from '@/components/Configurator'
 import { FormProvider, useForm } from 'react-hook-form'
-import { NotificationCreate } from 'types/notification'
+import { Notification } from 'types/notification'
 import { useToaster } from 'contexts/toaster'
-import { set, serverTimestamp, setWithPriority } from 'firebase/database';
 
 import {
   AuthAction,
-  useAuthUser,
   withAuthUser,
-  withAuthUserTokenSSR,
 } from 'next-firebase-auth'
 import Button from '@/components/Button'
-import { getNewEventRef } from 'database/event'
-import register from './register'
+import { addEvent, getEventCollection } from 'database/event'
+import { addDoc, serverTimestamp } from 'firebase/firestore'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export function Sandbox() {
-  const methods = useForm<NotificationCreate>();
+  const methods = useForm<Notification>();
   const { watch, handleSubmit, register } = methods;
   const notification = watch();
-  const user = useAuthUser();
 
   const { showToast } = useToaster();
 
-  const onSubmit = async (data: NotificationCreate) => {
-    set(getNewEventRef(), {
+  const onSubmit = async (data: Omit<Omit<Notification, "id">, "createdAt">) => {
+    addEvent({
       ...data,
       createdAt: serverTimestamp()
     });

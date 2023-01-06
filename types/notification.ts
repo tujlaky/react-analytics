@@ -6,4 +6,9 @@ export type Notification = {
   createdAt: number;
 };
 
-export type NotificationCreate = Omit<Notification, "id">;
+export type NotificationCreate = {
+  event: string;
+  channel: string;
+  description: string;
+  createdAt: object;
+};

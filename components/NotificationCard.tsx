@@ -1,8 +1,8 @@
 import { format, formatDistance } from "date-fns";
-import { NotificationCreate } from "types/notification";
+import { Notification } from "types/notification";
 
 interface NotificationCardProps {
-  notification: NotificationCreate
+  notification: Notification
 }
 
 function NotificationCard({ notification }: NotificationCardProps) {

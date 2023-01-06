@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import React from "react";
-import { NotificationCreate } from "types/notification";
+import { Notification } from "types/notification";
 import NotificationCard from "./NotificationCard";
 
 import styles from './Preview.module.css';
 
 interface PreviewProps {
-  notification: NotificationCreate;
+  notification: Notification;
   className?: string;
 }
 
