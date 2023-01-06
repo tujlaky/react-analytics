@@ -11,7 +11,7 @@ function NotificationCard({ notification }: NotificationCardProps) {
   return <div className="rounded w-full bg-white max-w-md drop-shadow-lg flex flex-col justify-center items-start p-4">
     <div className="flex justify-between w-full">
       <h2 className="font-bold text-xl gap-2">{notification.event}</h2>
-      <small className="text-sm text-gray-800">{ (!isNaN(createdAt)) && format(createdAt, 'HH:mm:ss')}</small>
+      <small className="text-sm text-gray-800">{ (!isNaN(createdAt)) && formatDistance(createdAt, new Date(), { addSuffix: false})}</small>
     </div>
 
     <div className="flex w-full">

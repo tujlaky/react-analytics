@@ -1,7 +1,6 @@
 import {
   addDoc,
   collection,
-  CollectionReference,
   DocumentData,
   getDocs,
   getFirestore,
@@ -44,7 +43,7 @@ export function dataToNotification(
     event: data.event,
     channel: data.channel,
     description: data.description,
-    createdAt: data.createdAt.seconds,
+    createdAt: data.createdAt.seconds * 1000,
   };
 }
 
